@@ -1,4 +1,0 @@
-SOURCE = \
-basicNewKinematicParcel/defineBasicNewKinematicParcel.C \
-basicNewKinematicParcel/makeBasicNewKinematicParcelSubmodels.C \
-icoLagrangianFoam.C 
