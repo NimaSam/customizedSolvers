@@ -1,0 +1,5 @@
+newKinematicParcel.C
+newKinematicParcelIO.C 
+
+LIB = $(FOAM_USER_LIBBIN)/libparcel
+

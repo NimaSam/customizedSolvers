@@ -1,0 +1,5 @@
+basicNewKinematicParcel/defineBasicNewKinematicParcel.C
+basicNewKinematicParcel/makeBasicNewKinematicParcelSubmodels.C
+icoLagrangianFoam.C  
+
+EXE = $(FOAM_USER_APPBIN)/icoLagrangianFoam
