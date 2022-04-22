@@ -1,0 +1,278 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      kinematicCloud1Properties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+solution
+{
+    active          true;
+// Coupling between particles and carrier phase via source terms
+    coupled         false;//
+    transient       yes;
+    cellValueSourceCorrection off;
+
+    sourceTerms
+    {
+        schemes
+        {
+	  U       explicit 1.0;//semiImplicit
+	     
+        }
+    }
+
+    interpolationSchemes
+    {
+        rho             cell;
+        U               cellPoint;
+        mu              cell;
+	DUcDt           cell; 
+        curlUcDt        cell;
+    }
+
+    integrationSchemes
+    {
+        U               Euler;
+/*
+2
+(
+Euler
+Analytical
+)
+*/
+    }
+}
+
+
+constantProperties{
+
+    // denisty will be calculate in each cell, this value set the minimum threshold 
+    rhoMin          1e-15;
+    // Minimum particle mass
+    minParticleMass    1.0e-15;
+    //- Particle density [kg/m3] (constant)
+    rho0            2300;
+    youngsModulus   6e8;
+    poissonsRatio   0.35;
+}
+
+subModels
+{
+
+// Particle sub-models
+injectionModels{
+
+model1{
+	type	patchInjection;//patchFlowRateInjection;//
+/*
+10
+(
+cellZoneInjection
+coneInjection
+coneNozzleInjection
+fieldActivatedInjection
+inflationInjection
+kinematicLookupTableInjection
+manualInjection
+none
+patchFlowRateInjection
+patchInjection
+)
+*/
+	massTotal     1.0e-10;
+	SOI                                  0.5;
+	parcelBasisType  fixed;//number,mass, fixed
+	nParticle      1;
+	patchName        inlet;
+	duration                             1.5;
+	parcelsPerSecond                     4000;
+	U0      (0 0 0);
+	flowRateProfile  constant 0.367e-10;//
+	massFlowRate    constant 0.367e-10; //TODO: check
+	
+	sizeDistribution{
+		type	 uniform;
+		uniformDistribution //minValue + random*(maxValue-minValue)
+        	{
+           		minValue         1.0e-06;
+           		maxValue         1.0e-06;
+        	}
+
+	} ;
+}                       
+
+}
+
+dispersionModel                          none;
+/*
+3
+(
+StochasticDispersionRAS
+none
+GradientDispersionRAS
+)
+*/
+
+patchInteractionModel               localInteraction;
+// standardWallInteraction;
+/*
+5
+(
+localInteraction
+multiInteraction
+none
+rebound
+standardWallInteraction
+)
+*/
+standardWallInteractionCoeffs
+{
+    type  stick;
+}
+/*
+3
+(
+rebound
+stick
+escape
+)
+*/
+
+ localInteractionCoeffs
+    {
+        patches
+        (
+            "(fiber)"
+            {
+                type        stick;
+                e               0;
+                mu              1;
+            }
+            
+            "(outlet)"
+            {
+                type        escape;
+            }
+
+            "(inlet|top|bottom|front|back)"
+            {
+                type        rebound;//escape;//
+            }
+
+        );
+    }
+particleForces
+{
+/*
+10
+(
+SRF
+SaffmanMeiLiftForce
+TomiyamaLift
+gravity
+nonInertialFrame
+nonSphereDrag
+paramagnetic
+pressureGradient
+sphereDrag
+virtualMass
+)
+*/
+//    gravity;       
+ /*   virtualMass {
+//- Virtual mass coefficient - typically 0.5
+	 Cvm    0.5;//
+    };*/    
+    //pressureGradient{};
+    sphereDrag ;
+    //SaffmanMeiLiftForce {};
+    /*nonSphereDrag {
+    phi		1;
+   };
+   nonInertialFrame {};*/
+   BrownianMotion {
+	lambda   68e-9;//- Molecular free path length [m]
+        turbulence  false;//
+	Tc  298; //continous phase temperature [k]
+	};
+  
+}
+surfaceFilmModel none;
+
+stochasticCollisionModel  none;//
+ 
+}
+
+cloudFunctions
+{
+patchPostProcessing 
+{
+    type	particleTracks;
+    trackInterval 1;
+    maxSamples  100;
+    resetOnWrite 5;
+   // maxStoredParcels 10000;
+    patches (
+            fixedWalls
+            //rotatingWall
+    );
+    /*
+    facePostProcessing
+particleCollector
+particleErosion
+particleTracks
+particleTrap
+patchCollisionDensity
+patchPostProcessing
+relativeVelocity
+voidFraction    
+    */
+}
+
+
+/*particleTracks
+{
+trackInterval 1;
+maxSamples  100;
+resetOnWrite 5;
+}
+*/
+/*
+particleCollector
+{
+removeCollected   1;
+normal   (1 1 0);
+negateParcelsOppositeNormal false;
+surfaceFormat  patch;
+resetOnWrite true;
+log true;
+mode polygon;// polygon and concentricCircle
+polygons 4 ();
+}
+*/
+
+
+/*
+7
+(
+facePostProcessing
+particleCollector
+particleErosion
+particleTracks
+particleTrap
+patchPostProcessing
+voidFraction
+)
+*/
+}
+
+// ************************************************************************* //
