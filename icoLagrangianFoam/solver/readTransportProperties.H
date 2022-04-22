@@ -1,5 +1,13 @@
 const word filterPatchName (transportProperties.lookup("filterPatch"));
 
+label filterIndex = mesh.boundaryMesh().findIndex(filterPatchName);
+if ( filterIndex < 0 ){
+FatalErrorInFunction
+            << "Unable to find " << filterPatchName << " in patch list \n"
+            << "Check the transportProperties filterPatch"
+            << exit(FatalError);
+}
+
 dimensionedScalar kpp
    (
        transportProperties.lookup("kpp")
