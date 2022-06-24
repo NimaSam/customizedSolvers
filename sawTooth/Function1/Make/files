@@ -1,0 +1,4 @@
+/* Run-time selectable functions */
+makeFunction1s.C
+
+LIB = $(FOAM_USER_LIBBIN)/libsawTooth

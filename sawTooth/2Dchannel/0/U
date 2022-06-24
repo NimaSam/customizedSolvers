@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    inlet
+    {
+      //  type            fixedValue;
+      //  value           uniform (1 0 0);
+
+	/*type		xxxgroovyBC;
+	variables	"UMax=0.8;UMin=0.6;duration=1;t0=time();t0f=t0-(t0%1);";
+	//valueExpression "vector((time()/duration-t0f)*(UMax-UMin)+UMin,0,0)";
+	//valueExpression "vector(t0f,0,0)";
+	valueExpression "vector(-2*(UMax-UMin)/pi*atan(1.0/tan(pi*time()/duration)),0,0)";    
+	gradientExpression "vector(0,0,0)";
+	fractionExpression "1";
+	value		uniform (0 0 0);*/
+	/*type            xxxx;
+  
+         profile         sawTooth;
+         direction       (1 0 0);
+         origin          0;
+         amplitude	1;
+         frequency	1;
+         scale		(1 1 1);
+         level		(0 0 0) ;*/
+        type            uniformFixedValue;
+        uniformValue    sawTooth; //scale*(frequency*t-floor(frequency*t))+level;
+        uniformValueCoeffs
+        {
+            frequency       constant 2; // 1/period 
+            scale           constant (1 0 0); //amplitude of wave
+            level           constant (1 0 0); // base line
+        }
+        value           uniform (0 0 0);
+
+	}
+
+    outlet
+    {
+        type		zeroGradient;
+    }
+
+    fixedWalls
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+// ************************************************************************* //
