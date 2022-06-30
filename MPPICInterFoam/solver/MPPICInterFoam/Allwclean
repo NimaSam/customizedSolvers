@@ -1,0 +1,9 @@
+#!/bin/sh
+cd "${0%/*}" || exit    # Run from this directory
+#------------------------------------------------------------------------------
+wclean libso transportModels/incompressible
+wclean libso transportModels/immiscibleIncompressibleTwoPhaseMixture
+wclean libso compressibleTwoPhaseMixtureTurbulenceModels
+wclean
+
+#------------------------------------------------------------------------------

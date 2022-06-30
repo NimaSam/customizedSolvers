@@ -1,0 +1,500 @@
+wmake libso .
+wmakeLnInclude: linking include files to ./lnInclude
+Making dependency list for source file incompressibleTwoPhaseMixture.C
+g++ -std=c++11 -m64 -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -O3  -DNoRepository -ftemplate-depth-100 -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/meshTools/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/thermophysicalModels/basic/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/compressible/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/interfaceProperties/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/immiscibleIncompressibleTwoPhaseMixture/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/TurbulenceModels/turbulenceModels/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/TurbulenceModels/incompressible/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/TurbulenceModels/compressible/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/TurbulenceModels/phaseCompressible/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/TurbulenceModels/phaseIncompressible/lnInclude -IlnInclude -I. -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude -I/home/nimasam/OpenFOAM/OpenFOAM-6/src/OSspecific/POSIX/lnInclude   -fPIC -c incompressibleTwoPhaseMixture.C -o Make/linux64GccDPInt32Opt/incompressibleTwoPhaseMixture.o
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBase.H:266,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLList.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UListIO.C:29,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.C:233,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.H:484,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.H:43,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Istream.H:187,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ISstream.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOstreams.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.C:27,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.H:229,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Vector.H:44,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vector.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/fieldTypes.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/transportModel/transportModel.H:39,
+                 from incompressibleTwoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H: In member function ‘Foam::SLListBase::iterator Foam::SLListBase::iterator::operator++(int)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:218:21: warning: implicitly-declared ‘constexpr Foam::SLListBase::iterator::iterator(const Foam::SLListBase::iterator&)’ is deprecated [-Wdeprecated-copy]
+  218 |     iterator tmp = *this;
+      |                     ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:174:13: note: because ‘Foam::SLListBase::iterator’ has user-provided ‘void Foam::SLListBase::iterator::operator=(const Foam::SLListBase::iterator&)’
+  174 | inline void Foam::SLListBase::iterator::operator=(const iterator& iter)
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:220:12: warning: implicitly-declared ‘constexpr Foam::SLListBase::iterator::iterator(const Foam::SLListBase::iterator&)’ is deprecated [-Wdeprecated-copy]
+  220 |     return tmp;
+      |            ^~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:174:13: note: because ‘Foam::SLListBase::iterator’ has user-provided ‘void Foam::SLListBase::iterator::operator=(const Foam::SLListBase::iterator&)’
+  174 | inline void Foam::SLListBase::iterator::operator=(const iterator& iter)
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H: In member function ‘Foam::SLListBase::iterator Foam::SLListBase::begin()’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:233:16: warning: implicitly-declared ‘constexpr Foam::SLListBase::iterator::iterator(const Foam::SLListBase::iterator&)’ is deprecated [-Wdeprecated-copy]
+  233 |         return endIter_;
+      |                ^~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:174:13: note: because ‘Foam::SLListBase::iterator’ has user-provided ‘void Foam::SLListBase::iterator::operator=(const Foam::SLListBase::iterator&)’
+  174 | inline void Foam::SLListBase::iterator::operator=(const iterator& iter)
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H: In member function ‘Foam::SLListBase::const_iterator Foam::SLListBase::const_iterator::operator++(int)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:318:27: warning: implicitly-declared ‘constexpr Foam::SLListBase::const_iterator::const_iterator(const Foam::SLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  318 |     const_iterator tmp = *this;
+      |                           ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:265:13: note: because ‘Foam::SLListBase::const_iterator’ has user-provided ‘void Foam::SLListBase::const_iterator::operator=(const Foam::SLListBase::const_iterator&)’
+  265 | inline void Foam::SLListBase::const_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:320:12: warning: implicitly-declared ‘constexpr Foam::SLListBase::const_iterator::const_iterator(const Foam::SLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  320 |     return tmp;
+      |            ^~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:265:13: note: because ‘Foam::SLListBase::const_iterator’ has user-provided ‘void Foam::SLListBase::const_iterator::operator=(const Foam::SLListBase::const_iterator&)’
+  265 | inline void Foam::SLListBase::const_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H: In member function ‘Foam::SLListBase::const_iterator Foam::SLListBase::cbegin() const’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:333:16: warning: implicitly-declared ‘constexpr Foam::SLListBase::const_iterator::const_iterator(const Foam::SLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  333 |         return endConstIter_;
+      |                ^~~~~~~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:265:13: note: because ‘Foam::SLListBase::const_iterator’ has user-provided ‘void Foam::SLListBase::const_iterator::operator=(const Foam::SLListBase::const_iterator&)’
+  265 | inline void Foam::SLListBase::const_iterator::operator=
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBase.H:324,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IDLList.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/entry.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dictionary.H:53,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:50,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H: In member function ‘Foam::DLListBase::iterator Foam::DLListBase::iterator::operator++(int)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:246:21: warning: implicitly-declared ‘constexpr Foam::DLListBase::iterator::iterator(const Foam::DLListBase::iterator&)’ is deprecated [-Wdeprecated-copy]
+  246 |     iterator tmp = *this;
+      |                     ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:198:13: note: because ‘Foam::DLListBase::iterator’ has user-provided ‘void Foam::DLListBase::iterator::operator=(const Foam::DLListBase::iterator&)’
+  198 | inline void Foam::DLListBase::iterator::operator=(const iterator& iter)
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:248:12: warning: implicitly-declared ‘constexpr Foam::DLListBase::iterator::iterator(const Foam::DLListBase::iterator&)’ is deprecated [-Wdeprecated-copy]
+  248 |     return tmp;
+      |            ^~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:198:13: note: because ‘Foam::DLListBase::iterator’ has user-provided ‘void Foam::DLListBase::iterator::operator=(const Foam::DLListBase::iterator&)’
+  198 | inline void Foam::DLListBase::iterator::operator=(const iterator& iter)
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H: In member function ‘Foam::DLListBase::iterator Foam::DLListBase::begin()’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:261:16: warning: implicitly-declared ‘constexpr Foam::DLListBase::iterator::iterator(const Foam::DLListBase::iterator&)’ is deprecated [-Wdeprecated-copy]
+  261 |         return endIter_;
+      |                ^~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:198:13: note: because ‘Foam::DLListBase::iterator’ has user-provided ‘void Foam::DLListBase::iterator::operator=(const Foam::DLListBase::iterator&)’
+  198 | inline void Foam::DLListBase::iterator::operator=(const iterator& iter)
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H: In member function ‘Foam::DLListBase::const_iterator Foam::DLListBase::const_iterator::operator++(int)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:345:27: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_iterator::const_iterator(const Foam::DLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  345 |     const_iterator tmp = *this;
+      |                           ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:292:13: note: because ‘Foam::DLListBase::const_iterator’ has user-provided ‘void Foam::DLListBase::const_iterator::operator=(const Foam::DLListBase::const_iterator&)’
+  292 | inline void Foam::DLListBase::const_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:347:12: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_iterator::const_iterator(const Foam::DLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  347 |     return tmp;
+      |            ^~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:292:13: note: because ‘Foam::DLListBase::const_iterator’ has user-provided ‘void Foam::DLListBase::const_iterator::operator=(const Foam::DLListBase::const_iterator&)’
+  292 | inline void Foam::DLListBase::const_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H: In member function ‘Foam::DLListBase::const_iterator Foam::DLListBase::cbegin() const’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:360:16: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_iterator::const_iterator(const Foam::DLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  360 |         return endConstIter_;
+      |                ^~~~~~~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:292:13: note: because ‘Foam::DLListBase::const_iterator’ has user-provided ‘void Foam::DLListBase::const_iterator::operator=(const Foam::DLListBase::const_iterator&)’
+  292 | inline void Foam::DLListBase::const_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H: In member function ‘Foam::DLListBase::const_reverse_iterator Foam::DLListBase::const_reverse_iterator::operator++(int)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:452:35: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_reverse_iterator::const_reverse_iterator(const Foam::DLListBase::const_reverse_iterator&)’ is deprecated [-Wdeprecated-copy]
+  452 |     const_reverse_iterator tmp = *this;
+      |                                   ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:399:13: note: because ‘Foam::DLListBase::const_reverse_iterator’ has user-provided ‘void Foam::DLListBase::const_reverse_iterator::operator=(const Foam::DLListBase::const_reverse_iterator&)’
+  399 | inline void Foam::DLListBase::const_reverse_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:454:12: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_reverse_iterator::const_reverse_iterator(const Foam::DLListBase::const_reverse_iterator&)’ is deprecated [-Wdeprecated-copy]
+  454 |     return tmp;
+      |            ^~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:399:13: note: because ‘Foam::DLListBase::const_reverse_iterator’ has user-provided ‘void Foam::DLListBase::const_reverse_iterator::operator=(const Foam::DLListBase::const_reverse_iterator&)’
+  399 | inline void Foam::DLListBase::const_reverse_iterator::operator=
+      |             ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H: In member function ‘Foam::DLListBase::const_reverse_iterator Foam::DLListBase::crbegin() const’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:467:16: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_reverse_iterator::const_reverse_iterator(const Foam::DLListBase::const_reverse_iterator&)’ is deprecated [-Wdeprecated-copy]
+  467 |         return endConstRevIter_;
+      |                ^~~~~~~~~~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:399:13: note: because ‘Foam::DLListBase::const_reverse_iterator’ has user-provided ‘void Foam::DLListBase::const_reverse_iterator::operator=(const Foam::DLListBase::const_reverse_iterator&)’
+  399 | inline void Foam::DLListBase::const_reverse_iterator::operator=
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/regIOobject.H:41,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:42,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOobject.H: In member function ‘Foam::autoPtr<Foam::IOobject> Foam::IOobject::clone() const’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOobject.H:273:56: warning: implicitly-declared ‘Foam::IOobject::IOobject(const Foam::IOobject&)’ is deprecated [-Wdeprecated-copy]
+  273 |             return autoPtr<IOobject>(new IOobject(*this));
+      |                                                        ^
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOobject.H:492:14: note: because ‘Foam::IOobject’ has user-provided ‘void Foam::IOobject::operator=(const Foam::IOobject&)’
+  492 |         void operator=(const IOobject&);
+      |              ^~~~~~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernion.H:206,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/transformField.H:40,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vectorTensorTransform.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/mapDistribute.H:138,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshData.H:627,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:1352,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:660,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernionI.H: In constructor ‘Foam::septernion::septernion(const vector&, const Foam::quaternion&)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernionI.H:34:9: warning: implicitly-declared ‘constexpr Foam::quaternion::quaternion(const Foam::quaternion&)’ is deprecated [-Wdeprecated-copy]
+   34 |     r_(r)
+      |         ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/quaternion.H:304,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/transformField.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vectorTensorTransform.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/mapDistribute.H:138,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshData.H:627,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:1352,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:660,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/quaternionI.H:526:13: note: because ‘Foam::quaternion’ has user-provided ‘void Foam::quaternion::operator=(const Foam::quaternion&)’
+  526 | inline void Foam::quaternion::operator=(const quaternion& q)
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernion.H:206,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/transformField.H:40,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vectorTensorTransform.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/mapDistribute.H:138,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshData.H:627,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:1352,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:660,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernionI.H: In constructor ‘Foam::septernion::septernion(const vector&)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernionI.H:40:21: warning: implicitly-declared ‘constexpr Foam::quaternion::quaternion(const Foam::quaternion&)’ is deprecated [-Wdeprecated-copy]
+   40 |     r_(quaternion::I)
+      |                     ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/quaternion.H:304,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/transformField.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vectorTensorTransform.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/mapDistribute.H:138,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshData.H:627,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:1352,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:660,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/quaternionI.H:526:13: note: because ‘Foam::quaternion’ has user-provided ‘void Foam::quaternion::operator=(const Foam::quaternion&)’
+  526 | inline void Foam::quaternion::operator=(const quaternion& q)
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernion.H:206,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/transformField.H:40,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vectorTensorTransform.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/mapDistribute.H:138,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshData.H:627,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:1352,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:660,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernionI.H: In constructor ‘Foam::septernion::septernion(const Foam::quaternion&)’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/septernionI.H:46:9: warning: implicitly-declared ‘constexpr Foam::quaternion::quaternion(const Foam::quaternion&)’ is deprecated [-Wdeprecated-copy]
+   46 |     r_(r)
+      |         ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/quaternion.H:304,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/transformField.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vectorTensorTransform.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/mapDistribute.H:138,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/globalMeshData.H:627,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:28,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:1352,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.H:660,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricScalarField.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFields.H:34,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/finiteVolume/lnInclude/volFields.H:37,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/twoPhaseMixture/lnInclude/twoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.H:40,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/quaternionI.H:526:13: note: because ‘Foam::quaternion’ has user-provided ‘void Foam::quaternion::operator=(const Foam::quaternion&)’
+  526 | inline void Foam::quaternion::operator=(const quaternion& q)
+      |             ^~~~
+incompressibleTwoPhaseMixture.C: In constructor ‘Foam::incompressibleTwoPhaseMixture::incompressibleTwoPhaseMixture(const volVectorField&, const surfaceScalarField&)’:
+incompressibleTwoPhaseMixture.C:114:45: error: no matching function for call to ‘Foam::dimensioned<double>::dimensioned(const Foam::dimensionSet&, const Foam::zero&)’
+  114 |         dimensionedScalar(dimViscosity, Zero),
+      |                                             ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:340,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedScalar.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:53,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:163:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned() [with Type = double]’
+  163 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:163:1: note:   candidate expects 0 arguments, 2 provided
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:147:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(const Foam::word&, const Foam::dimensionSet&, const Foam::dictionary&) [with Type = double]’
+  147 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:147:1: note:   candidate expects 3 arguments, 2 provided
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:131:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(const Foam::word&, const Foam::dimensionSet&, Foam::Istream&) [with Type = double]’
+  131 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:131:1: note:   candidate expects 3 arguments, 2 provided
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:114:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(const Foam::word&, Foam::Istream&) [with Type = double]’
+  114 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:116:17: note:   no known conversion for argument 1 from ‘const Foam::dimensionSet’ to ‘const Foam::word&’
+  116 |     const word& name,
+      |     ~~~~~~~~~~~~^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:102:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(Foam::Istream&) [with Type = double]’
+  102 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:102:1: note:   candidate expects 1 argument, 2 provided
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedScalar.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:53,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:101:9: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(const Type&) [with Type = double]’
+  101 |         dimensioned(const Type& t)
+      |         ^~~~~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:101:9: note:   candidate expects 1 argument, 2 provided
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:340,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedScalar.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:53,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:89:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(const Foam::word&, const Foam::dimensioned<Type>&) [with Type = double]’
+   89 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:91:17: note:   no known conversion for argument 1 from ‘const Foam::dimensionSet’ to ‘const Foam::word&’
+   91 |     const word& name,
+      |     ~~~~~~~~~~~~^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:75:1: note: candidate: ‘Foam::dimensioned<Type>::dimensioned(const Foam::word&, const Foam::dimensionSet&, Type) [with Type = double]’
+   75 | Foam::dimensioned<Type>::dimensioned
+      | ^~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.C:75:1: note:   candidate expects 3 arguments, 2 provided
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedScalar.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:53,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:65:7: note: candidate: ‘Foam::dimensioned<double>::dimensioned(const Foam::dimensioned<double>&)’
+   65 | class dimensioned
+      |       ^~~~~~~~~~~
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:65:7: note:   candidate expects 1 argument, 2 provided
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:65:7: note: candidate: ‘Foam::dimensioned<double>::dimensioned(Foam::dimensioned<double>&&)’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dimensionedType.H:65:7: note:   candidate expects 1 argument, 2 provided
+incompressibleTwoPhaseMixture.C: In member function ‘Foam::tmp<Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh> > Foam::incompressibleTwoPhaseMixture::mu() const’:
+incompressibleTwoPhaseMixture.C:132:33: error: ‘New’ is not a member of ‘Foam::tmp<Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh> >’
+  132 |     return tmp<volScalarField>::New
+      |                                 ^~~
+incompressibleTwoPhaseMixture.C: In member function ‘Foam::tmp<Foam::GeometricField<double, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::incompressibleTwoPhaseMixture::muf() const’:
+incompressibleTwoPhaseMixture.C:157:37: error: ‘New’ is not a member of ‘Foam::tmp<Foam::GeometricField<double, Foam::fvsPatchField, Foam::surfaceMesh> >’
+  157 |     return tmp<surfaceScalarField>::New
+      |                                     ^~~
+incompressibleTwoPhaseMixture.C: In member function ‘Foam::tmp<Foam::GeometricField<double, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::incompressibleTwoPhaseMixture::nuf() const’:
+incompressibleTwoPhaseMixture.C:174:37: error: ‘New’ is not a member of ‘Foam::tmp<Foam::GeometricField<double, Foam::fvsPatchField, Foam::surfaceMesh> >’
+  174 |     return tmp<surfaceScalarField>::New
+      |                                     ^~~
+incompressibleTwoPhaseMixture.C: In member function ‘virtual bool Foam::incompressibleTwoPhaseMixture::read()’:
+incompressibleTwoPhaseMixture.C:201:46: error: ‘const class Foam::dictionary’ has no member named ‘readEntry’
+  201 |             nuModel1_->viscosityProperties().readEntry("rho", rho1_);
+      |                                              ^~~~~~~~~
+incompressibleTwoPhaseMixture.C:202:46: error: ‘const class Foam::dictionary’ has no member named ‘readEntry’
+  202 |             nuModel2_->viscosityProperties().readEntry("rho", rho2_);
+      |                                              ^~~~~~~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLList.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UListIO.C:29,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.C:233,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.H:484,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.H:43,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Istream.H:187,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ISstream.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOstreams.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.C:27,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.H:229,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Vector.H:44,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vector.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/fieldTypes.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/transportModel/transportModel.H:39,
+                 from incompressibleTwoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/LList.H: In instantiation of ‘Foam::LList<LListBase, T>::const_iterator::const_iterator(Foam::LList<LListBase, T>::LListBase_const_iterator) [with LListBase = Foam::SLListBase; T = int; Foam::LList<LListBase, T>::LListBase_const_iterator = Foam::SLListBase::const_iterator]’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/LList.H:346:37:   required from ‘Foam::LList<LListBase, T>::const_iterator Foam::LList<LListBase, T>::begin() const [with LListBase = Foam::SLListBase; T = int]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.C:424:64:   required from ‘void Foam::List<T>::operator=(Foam::SLList<T>&) [with T = int; Foam::SLList<T> = Foam::LList<Foam::SLListBase, int>]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ListIO.C:144:11:   required from ‘Foam::Istream& Foam::operator>>(Foam::Istream&, Foam::List<T>&) [with T = int]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/faceI.H:162:40:   required from here
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/LList.H:302:50: warning: implicitly-declared ‘constexpr Foam::SLListBase::const_iterator::const_iterator(const Foam::SLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  302 |                 LListBase_const_iterator(baseIter)
+      |                                                  ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBase.H:266,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLList.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UListIO.C:29,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.C:233,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.H:484,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.H:43,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Istream.H:187,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ISstream.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOstreams.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.C:27,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.H:229,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Vector.H:44,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vector.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/fieldTypes.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/transportModel/transportModel.H:39,
+                 from incompressibleTwoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:265:13: note: because ‘Foam::SLListBase::const_iterator’ has user-provided ‘void Foam::SLListBase::const_iterator::operator=(const Foam::SLListBase::const_iterator&)’
+  265 | inline void Foam::SLListBase::const_iterator::operator=
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ILList.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IDLList.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/entry.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dictionary.H:53,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:50,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UILList.H: In instantiation of ‘Foam::UILList<LListBase, T>::const_iterator::const_iterator(Foam::UILList<LListBase, T>::LListBase_const_iterator) [with LListBase = Foam::DLListBase; T = Foam::entry; Foam::UILList<LListBase, T>::LListBase_const_iterator = Foam::DLListBase::const_iterator]’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UILList.H:281:37:   required from ‘Foam::UILList<LListBase, T>::const_iterator Foam::UILList<LListBase, T>::begin() const [with LListBase = Foam::DLListBase; T = Foam::entry]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:54:5:   required from ‘void Foam::GeometricField<Type, PatchField, GeoMesh>::Boundary::readField(const Foam::DimensionedField<TypeR, GeoMesh>&, const Foam::dictionary&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:56:29:   required from ‘void Foam::GeometricField<Type, PatchField, GeoMesh>::readFields(const Foam::dictionary&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:92:15:   required from ‘void Foam::GeometricField<Type, PatchField, GeoMesh>::readFields() [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:119:19:   required from ‘bool Foam::GeometricField<Type, PatchField, GeoMesh>::readIfPresent() [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:210:5:   required from ‘Foam::GeometricField<Type, PatchField, GeoMesh>::GeometricField(const Foam::IOobject&, const Mesh&, const Foam::dimensionSet&, const Foam::word&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh; Foam::GeometricField<Type, PatchField, GeoMesh>::Mesh = Foam::fvMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:583:1:   required from ‘Foam::tmp<Foam::GeometricField<Type, PatchField, GeoMesh> > Foam::operator*(const Foam::GeometricField<Type, PatchField, GeoMesh>&, const Foam::dimensioned<double>&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+incompressibleTwoPhaseMixture.C:53:31:   required from here
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UILList.H:238:50: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_iterator::const_iterator(const Foam::DLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  238 |                 LListBase_const_iterator(baseIter)
+      |                                                  ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBase.H:324,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IDLList.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/entry.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dictionary.H:53,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:50,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:292:13: note: because ‘Foam::DLListBase::const_iterator’ has user-provided ‘void Foam::DLListBase::const_iterator::operator=(const Foam::DLListBase::const_iterator&)’
+  292 | inline void Foam::DLListBase::const_iterator::operator=
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ILList.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IDLList.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/entry.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dictionary.H:53,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:50,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UILList.H: In instantiation of ‘Foam::UILList<LListBase, T>::const_reverse_iterator::const_reverse_iterator(typename LListBase::const_reverse_iterator) [with LListBase = Foam::DLListBase; T = Foam::entry; typename LListBase::const_reverse_iterator = Foam::DLListBase::const_reverse_iterator]’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UILList.H:345:38:   required from ‘Foam::UILList<LListBase, T>::const_reverse_iterator Foam::UILList<LListBase, T>::rbegin() const [with LListBase = Foam::DLListBase; T = Foam::entry]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:92:70:   required from ‘void Foam::GeometricField<Type, PatchField, GeoMesh>::Boundary::readField(const Foam::DimensionedField<TypeR, GeoMesh>&, const Foam::dictionary&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:56:29:   required from ‘void Foam::GeometricField<Type, PatchField, GeoMesh>::readFields(const Foam::dictionary&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:92:15:   required from ‘void Foam::GeometricField<Type, PatchField, GeoMesh>::readFields() [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:119:19:   required from ‘bool Foam::GeometricField<Type, PatchField, GeoMesh>::readIfPresent() [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:210:5:   required from ‘Foam::GeometricField<Type, PatchField, GeoMesh>::GeometricField(const Foam::IOobject&, const Mesh&, const Foam::dimensionSet&, const Foam::word&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh; Foam::GeometricField<Type, PatchField, GeoMesh>::Mesh = Foam::fvMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:583:1:   required from ‘Foam::tmp<Foam::GeometricField<Type, PatchField, GeoMesh> > Foam::operator*(const Foam::GeometricField<Type, PatchField, GeoMesh>&, const Foam::dimensioned<double>&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+incompressibleTwoPhaseMixture.C:53:31:   required from here
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UILList.H:306:59: warning: implicitly-declared ‘constexpr Foam::DLListBase::const_reverse_iterator::const_reverse_iterator(const Foam::DLListBase::const_reverse_iterator&)’ is deprecated [-Wdeprecated-copy]
+  306 |                 LListBase::const_reverse_iterator(baseIter)
+      |                                                           ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBase.H:324,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IDLList.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/entry.H:45,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/dictionary.H:53,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/viscosityModels/viscosityModel/viscosityModel.H:50,
+                 from incompressibleTwoPhaseMixture.H:39,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DLListBaseI.H:399:13: note: because ‘Foam::DLListBase::const_reverse_iterator’ has user-provided ‘void Foam::DLListBase::const_reverse_iterator::operator=(const Foam::DLListBase::const_reverse_iterator&)’
+  399 | inline void Foam::DLListBase::const_reverse_iterator::operator=
+      |             ^~~~
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLList.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UListIO.C:29,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.C:233,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.H:484,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.H:43,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Istream.H:187,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ISstream.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOstreams.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.C:27,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.H:229,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Vector.H:44,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vector.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/fieldTypes.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/transportModel/transportModel.H:39,
+                 from incompressibleTwoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/LList.H: In instantiation of ‘Foam::LList<LListBase, T>::const_iterator::const_iterator(Foam::LList<LListBase, T>::LListBase_const_iterator) [with LListBase = Foam::SLListBase; T = double; Foam::LList<LListBase, T>::LListBase_const_iterator = Foam::SLListBase::const_iterator]’:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/LList.H:346:37:   required from ‘Foam::LList<LListBase, T>::const_iterator Foam::LList<LListBase, T>::begin() const [with LListBase = Foam::SLListBase; T = double]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.C:424:64:   required from ‘void Foam::List<T>::operator=(Foam::SLList<T>&) [with T = double; Foam::SLList<T> = Foam::LList<Foam::SLListBase, double>]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ListIO.C:144:11:   required from ‘Foam::Istream& Foam::operator>>(Foam::Istream&, Foam::List<T>&) [with T = double]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Field.C:296:20:   required from ‘Foam::Field<Type>::Field(const Foam::word&, const Foam::dictionary&, Foam::label) [with Type = double; Foam::label = int]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DimensionedFieldIO.C:41:17:   required from ‘void Foam::DimensionedField<Type, GeoMesh>::readField(const Foam::dictionary&, const Foam::word&) [with Type = double; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DimensionedFieldIO.C:59:9:   required from ‘void Foam::DimensionedField<Type, GeoMesh>::readIfPresent(const Foam::word&) [with Type = double; GeoMesh = Foam::volMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/DimensionedField.C:91:9:   required from ‘Foam::DimensionedField<Type, GeoMesh>::DimensionedField(const Foam::IOobject&, const Mesh&, const Foam::dimensionSet&, bool) [with Type = double; GeoMesh = Foam::volMesh; Foam::DimensionedField<Type, GeoMesh>::Mesh = Foam::fvMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricField.C:203:58:   required from ‘Foam::GeometricField<Type, PatchField, GeoMesh>::GeometricField(const Foam::IOobject&, const Mesh&, const Foam::dimensionSet&, const Foam::word&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh; Foam::GeometricField<Type, PatchField, GeoMesh>::Mesh = Foam::fvMesh]’
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:583:1:   required from ‘Foam::tmp<Foam::GeometricField<Type, PatchField, GeoMesh> > Foam::operator*(const Foam::GeometricField<Type, PatchField, GeoMesh>&, const Foam::dimensioned<double>&) [with Type = double; PatchField = Foam::fvPatchField; GeoMesh = Foam::volMesh]’
+incompressibleTwoPhaseMixture.C:53:31:   required from here
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/LList.H:302:50: warning: implicitly-declared ‘constexpr Foam::SLListBase::const_iterator::const_iterator(const Foam::SLListBase::const_iterator&)’ is deprecated [-Wdeprecated-copy]
+  302 |                 LListBase_const_iterator(baseIter)
+      |                                                  ^
+In file included from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBase.H:266,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLList.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UListIO.C:29,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.C:233,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/UList.H:484,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/List.H:43,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Istream.H:187,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/ISstream.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/IOstreams.H:38,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.C:27,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/VectorSpace.H:229,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/Vector.H:44,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/vector.H:39,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/fieldTypes.H:35,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/primitiveFieldsFwd.H:36,
+                 from /home/nimasam/OpenFOAM/OpenFOAM-6/src/transportModels/incompressible/transportModel/transportModel.H:39,
+                 from incompressibleTwoPhaseMixture.H:38,
+                 from incompressibleTwoPhaseMixture.C:26:
+/home/nimasam/OpenFOAM/OpenFOAM-6/src/OpenFOAM/lnInclude/SLListBaseI.H:265:13: note: because ‘Foam::SLListBase::const_iterator’ has user-provided ‘void Foam::SLListBase::const_iterator::operator=(const Foam::SLListBase::const_iterator&)’
+  265 | inline void Foam::SLListBase::const_iterator::operator=
+      |             ^~~~
+make: *** [/home/nimasam/OpenFOAM/OpenFOAM-6/wmake/rules/General/transform:26: Make/linux64GccDPInt32Opt/incompressibleTwoPhaseMixture.o] Error 1

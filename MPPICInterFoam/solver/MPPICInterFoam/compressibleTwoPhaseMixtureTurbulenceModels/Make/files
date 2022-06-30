@@ -1,0 +1,4 @@
+CompressibleTwoPhaseMixtureTurbulenceModels.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libcompressibleTwoPhaseMixtureTurbulenceModels
