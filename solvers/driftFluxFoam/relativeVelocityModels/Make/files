@@ -1,0 +1,4 @@
+RichardsonZaki/RichardsonZaki.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libusrDriftFluxRelativeVelocityModels

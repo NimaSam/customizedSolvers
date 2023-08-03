@@ -1,0 +1,96 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     driftFluxFoam;
+
+startFrom       latestTime;//startTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         6400;
+
+deltaT          0.00001;
+
+writeControl    adjustableRunTime;
+
+writeInterval   1;//50;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+adjustTimeStep  on;
+
+maxCo           5;
+
+maxDeltaT       1;
+
+libs ("libusrDriftFluxRelativeVelocityModels.so");
+
+functions {
+
+//settling velocity
+   Us
+   {
+      type                 writeObjects;
+      functionObjectLibs   ("libutilityFunctionObjects.so");
+      writeControl        outputTime;
+      writeInterval       1;
+      objects
+      (
+         "Udm"
+      );
+   }
+   
+   Us_Mean
+   {
+   	#includeEtc "caseDicts/postProcessing/fields/fieldAverage.cfg"
+	mean            yes;
+	prime2Mean      no;
+	fields          (Udm);   
+   }
+   Us_Ave
+    {
+        type            volFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+        enabled         yes;
+        writeControl    timeStep;//outputTime;//writeTime;
+        writeInterval       1;
+        log             yes;
+        writeFields     no;
+        regionType      all;
+        operation       average;
+        //weightField     phi;
+        fields
+        (
+            Udm
+            UdmMean
+        );
+    }
+}
+// ************************************************************************* //

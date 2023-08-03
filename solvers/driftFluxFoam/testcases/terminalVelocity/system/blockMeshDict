@@ -1,0 +1,187 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+D 42.6E-03; //diameter of pipe
+
+convertToMeters $D;
+
+// * * * * * * * * * * * * * * * grid manipulation * * * * * * * * * * * * * * * //
+Ny	125; // cell numbers along cylinder
+Nxz	12;  // cell numbers in cross section
+Ly	12.5; // cylinder length = Ly*D
+
+
+Rout	0.5;  // cylinder radius = Rout*D
+Rin     0.4;  // cylinder inner radius = Rin*D , it controls the
+	      // core part of grid 	
+
+Pi	#calc "Foam::constant::mathematical::pi";
+Rxyi    #calc "$Rin*cos($Pi*45/180)";
+Rxyo    #calc "$Rout*cos($Pi*45/180)";	
+Arc1	#calc "$Rout*cos($Pi*22.5/180)";
+Arc2	#calc "$Rout*sin($Pi*22.5/180)";
+Rxyi_   #calc "-1*$Rxyi";
+Rin_    #calc "-1*$Rin";
+Rxyo_   #calc "-1*$Rxyo";
+Rout_	#calc "-1*$Rout";
+Arc1_	#calc "-1*$Arc1";
+Arc2_	#calc "-1*$Arc2";
+
+
+vertices
+(   //front face
+    (0.0 0.0 0.0)        //0    
+    ($Rin 0.0 0.0)     	//1
+    ($Rxyi 0.0 $Rxyi)  	//2  
+    (0.0 0.0 $Rin) 	//3
+    ($Rxyi_ 0.0 $Rxyi) 	//4
+    ($Rin_ 0.0 0.0) 	//5
+    ($Rxyi_ 0.0 $Rxyi_)	//6 
+    (0.0 0.0 $Rin_) 	//7
+    ($Rxyi 0.0 $Rxyi_)	//8
+    ($Rout 0.0 0.0) 	//9
+    ($Rxyo 0.0 $Rxyo) 	//10
+    (0.0 0.0 $Rout) 	//11
+    ($Rxyo_ 0.0 $Rxyo)	//12
+    ($Rout_ 0.0 0.0)	//13
+    ($Rxyo_ 0.0 $Rxyo_) //14
+    (0.0 0.0 $Rout_) 	//15
+    ($Rxyo 0.0 $Rxyo_)	//16
+    
+    // back face
+    (0.0 $Ly 0.0) 
+    ($Rin $Ly 0.0) 
+    ($Rxyi $Ly $Rxyi) 
+    (0.0 $Ly $Rin) 
+    ($Rxyi_ $Ly $Rxyi) 
+    ($Rin_ $Ly 0.0) 
+    ($Rxyi_ $Ly $Rxyi_) 
+    (0.0 $Ly $Rin_) 
+    ($Rxyi $Ly $Rxyi_) 
+    ($Rout $Ly 0.0) 
+    ($Rxyo $Ly $Rxyo) 
+    (0.0 $Ly $Rout) 
+    ($Rxyo_ $Ly $Rxyo)
+    ($Rout_ $Ly 0.0)
+    ($Rxyo_ $Ly $Rxyo_ )
+    (0.0 $Ly $Rout_ )
+    ($Rxyo $Ly $Rxyo_) 
+);
+
+blocks
+
+(
+    hex (2 1 0 3 19 18 17 20) ($Nxz $Nxz $Ny) simpleGrading (1 1 1)
+    hex (3 0 5 4 20 17 22 21) ($Nxz $Nxz $Ny) simpleGrading (1 1 1)
+    hex (5 0 7 6 22 17 24 23) ($Nxz $Nxz $Ny) simpleGrading (1 1 1)
+    hex (7 0 1 8 24 17 18 25) ($Nxz $Nxz $Ny) simpleGrading (1 1 1)
+    hex (1 2 10 9 18 19 27 26) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (2 3 11 10 19 20 28 27) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (3 4 12 11 20 21 29 28) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (4 5 13 12 21 22 30 29) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (5 6 14 13 22 23 31 30) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (6 7 15 14 23 24 32 31) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (7 8 16 15 24 25 33 32) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    hex (8 1 9 16 25 18 26 33) ($Nxz $Nxz $Ny) simpleGrading (1 0.15 1)
+    
+);
+
+
+edges
+(
+    arc 9 10 ($Arc1 0.0 $Arc2)
+    arc 10 11 ($Arc2 0.0 $Arc1)
+    arc 11 12 ($Arc2_ 0.0 $Arc1)
+    arc 12 13 ($Arc1_ 0.0 $Arc2)
+    arc 13 14 ($Arc1_ 0.0 $Arc2_)
+    arc 14 15 ($Arc2_ 0.0 $Arc1_)
+    arc 15 16 ($Arc2 0.0 $Arc1_)
+    arc 16 9 ($Arc1 0.0 $Arc2_)
+    
+    
+    arc 26 27 ($Arc1 $Ly $Arc2)
+    arc 27 28 ($Arc2 $Ly $Arc1)
+    arc 28 29 ($Arc2_ $Ly $Arc1)
+    arc 29 30 ($Arc1_ $Ly $Arc2 )
+    arc 30 31 ($Arc1_ $Ly $Arc2_)
+    arc 31 32 ($Arc2_ $Ly $Arc1_)
+    arc 32 33 ($Arc2 $Ly $Arc1_)
+    arc 33 26 ($Arc1 $Ly $Arc2_ )
+);
+
+boundary
+(
+   inlet
+    {
+        type cyclic;
+        neighbourPatch  outlet;
+        faces
+        (
+            (2 3 0 1)
+            (5 0 3 4)
+            (5 0 7 6)
+            (7 0 1 8)
+            (1 9 10 2)
+            (3 2 10 11)
+            (3 11 12 4)
+            (5 4 12 13)
+            (6 5 13 14)
+            (7 6 14 15)
+            (8 7 15 16)
+            (1 8 16 9)
+        );
+    }
+
+    outlet
+    {
+        type cyclic;
+        neighbourPatch  inlet;
+        faces
+        (
+          (17 18 19 20)
+          (17 20 21 22)
+          (17 22 23 24)
+          (17 24 25 18)
+          (18 26 27 19)
+          (19 27 28 20)
+          (20 28 29 21)
+          (21 29 30 22)
+          (22 30 31 23)
+          (23 31 32 24)
+          (24 32 33 25)
+          (25 33 26 18)
+        );
+    }
+     walls
+    {
+        type wall;
+        faces
+        (
+           (10 9 26 27)
+           (10 11 28 27)
+           (11 12 29 28)
+           (12 13 30 29)
+           (13 14 31 30)
+           (14 15 32 31)
+           (15 16 33 32)
+           (16 9 26 33)
+        );
+    }     
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

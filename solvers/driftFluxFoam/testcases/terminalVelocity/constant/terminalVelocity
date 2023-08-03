@@ -1,0 +1,36 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      terminalVelocity;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+//particle density [kg/m^3]
+rhop	1996;
+
+//continous phase density [kg/m^3]
+rhoc	996;
+
+//continous phase viscosity [kg/m^3]
+muc	0.001779952;
+nuc    #calc "($muc)/$rhoc";
+
+//particle diameter [m]
+d 	0.001;
+
+//gravity
+g       -9.81;
+
+
+//terminal velocity
+ut     #calc "$d*$d*($rhop - $rhoc)*($g)/(18*($muc))";
+
+// ************************************************************************* //

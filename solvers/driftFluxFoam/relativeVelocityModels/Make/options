@@ -1,0 +1,15 @@
+EXE_INC = \
+    -I$(FOAM_SOLVERS)/multiphase/driftFluxFoam/incompressibleTwoPhaseInteractingMixture \
+    -I$(FOAM_SOLVERS)/multiphase/driftFluxFoam/mixtureViscosityModels/lnInclude \
+    -I$(FOAM_SOLVERS)/multiphase/driftFluxFoam/relativeVelocityModels/lnInclude \
+    -I$(LIB_SRC)/transportModels/lnInclude \
+    -I$(LIB_SRC)/twoPhaseModels/twoPhaseMixture/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    
+
+LIB_LIBS = \
+    -ltransportModels \
+    -lfiniteVolume \
+    -lmeshTools \
+    -ldriftFluxRelativeVelocityModels

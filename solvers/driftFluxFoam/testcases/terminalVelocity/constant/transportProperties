@@ -1,0 +1,96 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "terminalVelocity"
+
+phases (sludge water);
+
+sludge
+{
+    transportModel  BinghamPlastic;//slurry;//
+
+/*
+3
+(
+BinghamPlastic
+plastic
+slurry
+)
+*/
+
+    "(plastic|BinghamPlastic)Coeffs"
+    {
+        coeff       0.00023143;
+        exponent    179.26;
+
+        BinghamCoeff    0.0005966;
+        BinghamExponent 1050.8;
+        BinghamOffset   0;
+
+        muMax       10;
+    }
+
+    rho         $rhop;
+}
+
+water
+{
+    transportModel  Newtonian;
+
+    nu              $nuc;
+    rho             $rhoc;
+}
+
+relativeVelocityModel simple;//general;
+
+/*
+general
+simple
+*/
+
+/* formula for general:
+
+  V0_
+       *(
+            exp(-a_*max(alphad_ - residualAlpha_, scalar(0)))
+          - exp(-a1_*max(alphad_ - residualAlpha_, scalar(0)))
+        );
+        
+*/
+/*
+formula for simple:
+
+(rhoc_/rho())*V0_*pow(scalar(10), -a_*max(alphad_, scalar(0)))
+
+*/
+
+
+
+
+"(simple|general)Coeffs"
+{
+   // V0              (0 0 -0.002198);// terminal velocity   
+   // a               285.84;
+   // a1              0.1;
+  //  residualAlpha   0;
+    
+    //without hinder velocity
+    V0              (0 0 $ut);// terminal velocity   
+    a               0;
+    residualAlpha   0;
+}
+
+
+// ************************************************************************* //

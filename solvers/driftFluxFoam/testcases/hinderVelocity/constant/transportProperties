@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "terminalVelocity"
+
+phases (sludge water);
+
+sludge
+{
+    transportModel  BinghamPlastic;
+    
+    "(plastic|BinghamPlastic)Coeffs"
+    {
+        coeff       0.00023143;
+        exponent    179.26;
+
+        BinghamCoeff    0.0005966;
+        BinghamExponent 1050.8;
+        BinghamOffset   0;
+
+        muMax       10;
+    }
+
+    rho         $rhop;
+}
+
+water
+{
+    transportModel  Newtonian;
+
+    nu              $nuc;
+    rho             $rhoc;
+}
+
+relativeVelocityModel RichardsonZaki;
+
+
+RichardsonZakiCoeffs
+{
+    
+    //with hinder velocity
+    V0              (0 0 $ut);// terminal velocity   
+    a               4.65;
+    residualAlpha   0;
+}
+
+
+// ************************************************************************* //
