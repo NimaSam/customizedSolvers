@@ -1,0 +1,153 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dictionaryReplacement
+{
+    T
+    {
+        internalField   uniform 500;
+
+        boundaryField
+        {
+    
+    down
+    {
+        type            fixedValue;
+        value           uniform 505;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    	      solid_to_fluid
+    		{
+       // type            calculated;
+       // value           uniform 0;
+	//type            fixedValue;
+        //value           uniform 375.15;
+	
+       //type            solidWallHeatFluxTemperature;
+       //K               K;                  // Name of K field
+       //q               uniform 1000;       // Heat flux / [W/m2]
+       //value           uniform 383.15;      // Initial temperature / [K]
+       //gradient        uniform 0.0;        // Initial gradient / [K/m]
+        
+       type                solidWallMixedTemperatureCoupled;
+       neighbourFieldName  T;
+       K                   K;
+       value               uniform 500;
+      
+        
+    }
+        }
+    }
+
+    rho
+    {
+        internalField    uniform 1000;
+
+      boundaryField
+        {
+    
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    solid_to_fluid
+    {
+        type            zeroGradient;
+    }
+    }
+    }
+
+    K
+    {
+        internalField   uniform 55;
+
+         boundaryField
+        {
+     
+    down
+    {
+        type            zeroGradient;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    solid_to_fluid
+    {
+        type            zeroGradient;
+    }
+    }
+    }
+
+     Cp
+    {
+        internalField   uniform 490;
+
+         boundaryField
+        {
+   
+    down
+    {
+        type            zeroGradient;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    solid_to_fluid
+    {
+        type            zeroGradient;
+    }
+    }
+    }
+}
+
+// ************************************************************************* //

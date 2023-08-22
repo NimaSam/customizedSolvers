@@ -1,0 +1,155 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dictionaryReplacement
+{
+    U
+    {internalField   uniform (0 0 0);
+
+boundaryField
+{
+    up
+    {
+        type            zeroGradient;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    fluid_to_solid
+    {
+        type            fixedValue;
+        value           uniform ( 0 0 0 );
+//	type		zeroGradient;
+    }
+}
+    }
+
+    T
+    {
+      internalField   uniform 500;
+
+    boundaryField{
+    up
+    {
+        type            zeroGradient;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    fluid_to_solid
+    {
+       type                solidWallMixedTemperatureCoupled;
+       neighbourFieldName  T;
+       K                   K;
+       value               uniform 500;
+	
+    }
+}
+
+    }
+
+    alpha.water
+    {
+       internalField   uniform 1.0;
+
+boundaryField
+{
+     up
+    {
+        type            zeroGradient;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    fluid_to_solid
+    {
+//         type            zeroGradient;		
+        type            dynamicAlphaContactAngle;// zeroGradient;
+        value   uniform 0;
+        theta0  90;
+        thetaA  90;
+        thetaR  90;
+        uTheta  1;
+        limit   gradient;
+    }
+   }
+
+    }
+
+    p_rgh
+    {
+       
+internalField   uniform 0;
+
+boundaryField
+{
+   up
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    wall-1
+    {
+        type            symmetryPlane;
+    }
+    wall-2
+    {
+        type            symmetryPlane;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    fluid_to_solid
+    {
+         type            zeroGradient;
+        gradient        uniform 0;
+        value           uniform 0;
+
+    }
+    
+}
+    }
+}
+
+// ************************************************************************* //

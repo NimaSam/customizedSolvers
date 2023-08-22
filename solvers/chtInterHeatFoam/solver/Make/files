@@ -1,0 +1,13 @@
+BCs/solidWallHeatFluxTemperature/solidWallHeatFluxTemperatureFvPatchScalarField.C
+BCs/solidWallMixedTemperatureCoupled/solidWallMixedTemperatureCoupledFvPatchScalarField.C
+
+fluid/userIncompressibleTwoPhaseMixture/userIncompressibleTwoPhaseMixture.C
+
+deltaTime/solidRegionDiffNo/solidRegionDiffNo.C
+deltaTime/fluidRegionAlphaCoNo/fluidRegionAlphaCoNo.C
+deltaTime/fluidRegionIncompressibleCoNo/fluidRegionIncompressibleCoNo.C
+
+chtInterHeatFoam.C
+
+EXE = $(FOAM_USER_APPBIN)/chtInterHeatFoam
+
