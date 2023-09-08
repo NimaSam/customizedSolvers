@@ -1,0 +1,226 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      cloudProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type        MPPICCloud;
+
+solution
+{
+    coupled       true;
+    transient       yes;
+    cellValueSourceCorrection off;
+
+    maxCo           0.1;
+
+    interpolationSchemes
+    {
+         rho.air         cell;
+        U.air           cellPoint;
+        mu.air          cell;
+        alpha.air       cell;
+        curlUcDt    cellPoint;
+        DUcDt	    cell;
+        
+    }
+
+    averagingMethod dual;
+
+    integrationSchemes
+    {
+        U            analytical;////analytical//Euler
+    }
+
+    sourceTerms
+    {
+        schemes
+        {
+            U          semiImplicit 0.9;
+        }
+    }
+}
+
+constantProperties
+{
+    rho0            1190;
+    alphaMax        0.9; 
+}
+
+subModels
+{
+    particleForces
+    {
+        //PlessisMasliyahDrag
+        DiFeliceDrag
+        {
+            alphac alpha.air;
+        }
+        gravity;
+        
+        SaffmanMeiLiftForce
+	{
+		U U.air;
+	}
+        pressureGradient
+	{
+	   U U.air;
+	}
+        virtualMass
+	{
+		Cvm 0.5;
+	}
+    }
+
+
+    injectionModels
+    {
+        model1
+        {
+            type            manualInjection;
+            massTotal       0;
+            parcelBasisType fixed;
+            nParticle       1;
+            SOI             0;
+            positionsFile   "cloudPositions";
+            U0              (0 0 0);
+            sizeDistribution
+            {
+                type        fixedValue;
+                fixedValueDistribution
+                {
+                    value  50e-6;
+                }
+            }
+        }
+    }
+
+    dispersionModel none;
+
+    patchInteractionModel localInteraction;
+
+    localInteractionCoeffs
+    {
+        patches
+        (
+            top
+            {
+                type rebound;
+                e    0.97;
+                mu   0.09;
+            }
+            bottom
+            {
+                type rebound;
+                e    0.97;
+                mu   0.09;
+            }
+            movingWallOut
+            {
+                type rebound;
+                e   0.97;
+                mu   0.09;
+            }
+           movingWallIn
+            {
+                type rebound;
+                e   0.97;
+                mu    0.09;
+            }
+        );
+    }
+
+    heatTransferModel none;
+
+    surfaceFilmModel none;
+
+    packingModel    none;// explicit;//implicit
+
+   /* explicitCoeffs
+    {
+        particleStressModel
+        {
+            type HarrisCrighton;
+            alphaPacked 0.45;
+            pSolid 80.0;
+            beta 5.0;
+            eps 1.0e-7;
+        }
+        correctionLimitingMethod
+        {
+            type absolute;
+            e 0.9;
+        }
+    }
+    implicitCoeffs
+    {
+        alphaMin 0.0001;
+        rhoMin 1190;
+        applyLimiting true;
+        applyGravity true;
+        particleStressModel
+        {
+            type HarrisCrighton;
+            alphaPacked 0.45;
+            pSolid 80.0;
+            beta 5.0;
+            eps 1.0e-7;
+        }
+    }*/
+
+    dampingModel    relaxation;// none;
+
+    relaxationCoeffs
+    {
+        timeScaleModel
+        {
+            type     isotropic;// nonEquilibrium
+            alphaPacked    0.46;// 0.58;
+            e 0.9;
+        }
+    }
+
+    isotropyModel stochastic;
+
+    stochasticCoeffs
+    {
+        timeScaleModel
+        {
+            type          isotropic;//equilibrium;
+            alphaPacked 0.46;
+            e 0.9;
+        }
+    }
+
+    stochasticCollisionModel none;
+
+    radiation off;
+}
+
+
+cloudFunctions
+{
+   func1
+   {
+	type voidFraction;
+   }
+ // func2
+  // {
+	//type particleTracks;
+	//trackInterval	1;
+	//maxSamples	999999999;
+	//resetOnWrite	false;
+   //} 
+}
+
+// ************************************************************************* //

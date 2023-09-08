@@ -1,0 +1,118 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      binary;
+    class       volVectorField;
+    location    "0";
+    object      U.air;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "../system/block";
+
+omegaRe #calc"($Re*$mu)/($gapeD*$r*$rho)";
+//r     0.016;
+//gapeD      0.0015;
+//lenght    0.015;
+//sizeOfMesh 0.00015; 
+//Re   160;
+//rho  1190;
+//mu    0.0078;
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%  dimensions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+dimensions      [0 1 -1 0 0 0 0];
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%  internalField  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+internalField   uniform (0 0 0);
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%  boundaryField  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+boundaryField
+{
+
+//---------------------------   movingWallOut  ---------------------------------------
+
+   	movingWallOut
+{
+        type            noSlip;  
+}
+//---------------------------   movingWallIn  ---------------------------------------
+	movingWallIn
+{
+       type            rotatingWallVelocity;
+       phi             phi.air;
+       origin     (0 0 0);
+       axis       (0 0 1);
+       omega   $omegaRe;
+        //redirectType         movingWallIn;
+       
+        //codeOptions
+        //#{
+               //-I$(LIB_SRC)/finiteVolume/lnInclude \
+               //-I$(LIB_SRC)/meshTools/lnInclude
+        //#};
+        //codeInclude
+        //#{
+          // #include "fvCFD.H"
+           //#include <cmath>
+           //#include <isotream>
+          // #include "CourantNo.H"
+         //#};
+         //code
+         ///#{
+         //const fvPatch& boundaryPatch = patch();
+         //const vectorField& movingWallVelocity = boundaryPatch.movingWallVelocity();
+         //const scalar t = this->db().time().omega();
+          //scalarField& field = *this;
+          //filed = patchInternalField
+         // const scalar U_0 = 2; //maximum velocity
+        // const scalar  p_ctr = 8; //patch center 
+         //const scalar  p_ctr = 8; //patch center 
+        // const scalar  gapeD = 0.0015; //patch radius
+         // const scalar r = 0.0165; 
+          //const scalar rho = 1000; 
+           //const scalar mu = 0.001; 
+        // forAll(movingWallVelocity,movingWallIn)
+         //{
+         //field[movingWallIn] = omega((delta(t)*((Re*mu)/(gapeD*r*rho )))/sizeOfMesh)
+       // if((movingWallVelocity[movingWallIn].z() > z0) && (movingWallVelocity[movingWallIn].z() < z1) && (movingWallVelocity[movingWallIn].y() > y0) && (movingWallVelocity[movingWallIn].y() < y1)
+        //{
+        //if (t < 8)
+       // {
+       // field[movingWallIn] = #calc"($Re*$mu)/($gapeD*$r*$rho )";
+       // }
+       // else 
+        //{
+        
+       // field[movingWallIn] = #calc"2*($Re*$mu)/($gapeD*$r*$rho )";
+        // }
+        // }
+         //}
+         
+        // #};
+}
+//--------------------------   frontAndBack  ----------------------------------------- 
+	frontAndBack
+{
+        type	empty;
+}
+//---------------------------     top        -----------------------------------------
+	top
+{
+	type	cyclic;
+}
+//---------------------------   bottom      ----------------------------------------- 
+	bottom
+{
+        type	cyclic;
+}
+//-----------------------------------------------------------------------------------
+}
+// ************************************************************************* //

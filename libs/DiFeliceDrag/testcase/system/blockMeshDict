@@ -1,0 +1,183 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+    
+#include "block";    
+    
+     
+R	#calc "$r+$gapeD ";
+nR 	#calc "3*(floor((($gapeD)/$sizeOfMesh)+1))";
+
+
+nP #calc "floor((0.25*2*3.14*(($r+$R)*0.5))/$sizeOfMesh+1)";
+nZ #calc "(floor((($lenght)/$sizeOfMesh)+1))";
+
+xPosIn #calc "+1*$r";   
+xNegIn #calc "-1*$r";   
+
+yPosIn #calc "+1*$r";
+yNegIn #calc "-1*$r";
+
+xPosOut #calc "+1*$R";
+xNegOut #calc "-1*$R";
+
+yPosOut #calc  "+1*$R";
+yNegOut #calc  "-1*$R";
+
+zPos #calc "+1*$lenght";
+zNeg #calc "0";
+
+xArcPosOut #calc "+1*$R*0.707106781";
+xArcNegOut #calc "-1*$R*0.707106781";
+
+yArcPosOut #calc "+1*$R*0.707106781";
+yArcNegOut #calc "-1*$R*0.707106781";
+
+xArcPosIn #calc "+1*$r*0.707106781";
+xArcNegIn #calc "-1*$r*0.707106781";
+
+yArcPosIn #calc "+1*$r*0.707106781";
+yArcNegIn #calc "-1*$r*0.707106781";
+
+// %%%%%%%%%%%%%%%%%%% vertices %%%%%%%%%%%%%%%%%%%%%%%%%
+vertices
+(
+(0 $yNegOut $zNeg)	//0
+($xPosOut 0  $zNeg)	//1
+(0 $yPosOut $zNeg)	//2
+($xNegOut 0 $zNeg)	//3
+    
+(0 $yNegIn $zNeg)	//4
+($xPosIn 0  $zNeg)	//5
+(0 $yPosIn $zNeg)	//6
+($xNegIn 0 $zNeg)	//7
+
+(0 $yNegOut $zPos)	//8
+($xPosOut 0  $zPos)	//9
+(0 $yPosOut $zPos)	//10
+($xNegOut 0 $zPos)	//11
+    
+(0 $yNegIn $zPos)	//12
+($xPosIn 0  $zPos)	//13
+(0 $yPosIn $zPos)	//14
+($xNegIn 0 $zPos)	//15
+);
+// %%%%%%%%%%%%%%%%%%% blocks %%%%%%%%%%%%%%%%%%%%%%%%%
+blocks
+(
+    hex (0 1 5 4 8 9 13 12) ($nP $nR $nZ) simpleGrading (1 ((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)) ((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)))
+    hex (5 1 2 6 13 9 10 14) ($nR $nP $nZ) simpleGrading (((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)) 1 ((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)))
+    hex (3 7 6 2 11 15 14 10) ($nR $nP $nZ) simpleGrading (((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)) 1 ((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)))
+    hex (3 0 4 7 11 8 12 15) ($nP $nR $nZ) simpleGrading (1 ((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)) ((0.25 0.3 2) (0.5 0.4 1) (0.25 0.3 0.5)))
+);
+// %%%%%%%%%%%%%%%%%%% edges %%%%%%%%%%%%%%%%%%%%%%%%%
+edges
+(
+arc 0 1 ($xArcPosOut $yArcNegOut $zNeg)
+arc 1 2 ($xArcPosOut $yArcPosOut $zNeg)
+arc 2 3 ($xArcNegOut $yArcPosOut $zNeg)
+arc 3 0 ($xArcNegOut $yArcNegOut $zNeg)
+
+arc 4 5 ($xArcPosIn $yArcNegIn $zNeg)
+arc 5 6 ($xArcPosIn $yArcPosIn $zNeg)
+arc 6 7 ($xArcNegIn $yArcPosIn $zNeg)
+arc 7 4 ($xArcNegIn $yArcNegIn $zNeg)
+
+arc 8 9 ($xArcPosOut $yArcNegOut $zPos)
+arc 9 10 ($xArcPosOut $yArcPosOut $zPos)
+arc 10 11 ($xArcNegOut $yArcPosOut $zPos)
+arc 11 8 ($xArcNegOut $yArcNegOut $zPos)
+
+arc 12 13 ($xArcPosIn $yArcNegIn $zPos)
+arc 13 14 ($xArcPosIn $yArcPosIn $zPos)
+arc 14 15 ($xArcNegIn $yArcPosIn $zPos)
+arc 15 12 ($xArcNegIn $yArcNegIn $zPos)
+
+);
+// %%%%%%%%%%%%%%%%%%% defaultPatch %%%%%%%%%%%%%%%%%%%%%%%%%
+defaultPatch
+{
+    name frontAndBack;
+    type empty;
+}
+// %%%%%%%%%%%%%%%%%%% Boundary %%%%%%%%%%%%%%%%%%%%%%%%%
+boundary
+(
+// -----------------------------------------
+	movingWallOut
+{
+        type wall;
+        faces
+        (
+	 (0 1 9 8)
+	 (1 2 10 9)
+	 (2 3 11 10)
+	 (3 0 8 11)
+        );
+}
+// -----------------------------------------
+	movingWallIn
+{
+        type wall;
+        faces
+        (
+	 (4 5 13 12)
+	 (5 6 14 13)
+	 (6 7 15 14)
+	 (7 4 12 15)
+            
+        );
+   
+}
+// -----------------------------------------  
+	top
+{
+        type cyclic;
+        neighbourPatch    bottom;
+        faces
+        (
+	 (0 1 5 4)
+	 (5 1 2 6)
+	 (3 7 6 2)
+	 (3 0 4 7)
+            
+        );
+    
+}
+// -----------------------------------------
+	bottom
+{
+        type cyclic;
+        neighbourPatch    top;
+        faces
+        (
+	 (8 9 13 12)
+	 (13 9 10 14)
+	 (11 15 14 10)
+	 (11 8 12 15)
+            
+        );
+   
+}   
+// -----------------------------------------    
+    
+);
+// %%%%%%%%%%%%%%%%%%% mergePatchPairs %%%%%%%%%%%%%%%%%%%%%%%%%
+mergePatchPairs
+(
+);
+// ************************************************************************* //
