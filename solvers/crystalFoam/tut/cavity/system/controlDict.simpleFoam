@@ -1,0 +1,98 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     pbeTransportFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;//writeNow;//
+
+endTime         100;
+
+deltaT          1;
+
+writeControl    adjustableRunTime;
+
+writeInterval   10;
+
+purgeWrite      5;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   12;
+
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+
+maxCo           0.9;
+
+maxDeltaT       0.1;
+/*
+functions
+{  
+    d43Average
+    {
+        functionObjectLibs ("libutilityFunctionObjects.so");
+        type coded;
+        redirectType integral;
+        outputControl timeStep;
+        code
+        #{
+	const volScalarField& m2 
+                = mesh().lookupObject<volScalarField>("moment.2");
+        const volScalarField& m3 
+                = mesh().lookupObject<volScalarField>("moment.3");
+                
+        const volScalarField& m4
+                = mesh().lookupObject<volScalarField>("moment.4");
+                
+        volScalarField d43(m4/m3);
+	volScalarField d32(m3/m2);
+
+        scalar volAverage43 = 0;
+	scalar volAverage32 = 0;
+        scalar totalVolume = 0;
+
+        forAll (d43, cellI)
+        {
+            totalVolume += mesh().V()[cellI];
+        }
+
+        forAll (d43, cellI)
+        {
+            volAverage43 += d43[cellI]*mesh().V()[cellI]/totalVolume;
+	    volAverage32 += d32[cellI]*mesh().V()[cellI]/totalVolume;
+        }
+
+        Info <<"Volume averaged normalized d43: " << volAverage43/(2.0e-6) 
+	     <<"Volume averaged normalized d32: " << volAverage32	
+	<< endl;
+
+        #};
+    }
+}
+*/
+
+// ************************************************************************* //

@@ -1,0 +1,36 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  3.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+/*
+HMX1
+{
+    type            scalarCodedSource;
+
+     code
+        #{
+        const volScalarField& m2 
+                = mesh().lookupObject<volScalarField>("moment.2");
+        
+	autoPtr<Foam::populationBalanceSubModels::growthModel>  growth(
+    		Foam::populationBalanceSubModels::growthModel::New(populationBalanceProperties)
+	    );        
+
+        #};	
+    
+}
+*/
+
+//************************************************************************ //

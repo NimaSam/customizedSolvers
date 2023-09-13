@@ -1,6 +1,8 @@
 # Ignore compiled binaries
 *.OpenFOAM
 *.pdf
+*.docx
+*.doc
 *.cproject
 *.project
 *.jpg

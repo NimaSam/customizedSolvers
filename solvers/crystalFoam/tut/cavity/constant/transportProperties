@@ -1,0 +1,64 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+transportModel  Newtonian;
+nu	0.1;//1.097e-6;
+thermoType
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;//sensibleInternalEnergy;
+}
+dpdt false;
+mixture
+{
+    specie
+    {
+        nMoles      1;
+        molWeight   18;
+        solubility   0.1;	
+    }
+    equationOfState
+    {
+        rho         1055;
+    }
+    thermodynamics
+    {
+        Cp          4196;
+        Hf          0;
+    }
+    transport
+    {
+        mu          1.097e-3;
+        Pr          1;
+	Sct	    0.7;  //for eddy viscosity model use 0.7  //for RSM method use 1.0	
+    }
+}
+
+species (water acetone HMX0 HMX1);
+
+crystalSpecie  HMX1;
+
+inertSpecie  HMX1;
+
+growthSource HMX0;
+
+ka     1.0;// ???
+// ************************************************************************* //

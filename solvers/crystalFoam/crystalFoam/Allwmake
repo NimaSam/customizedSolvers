@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+set -x
+
+wmake libso src/eigenSolver
+wmake libso src/quadratureMethods/univariateMomentSet
+wmake libso src/quadratureMethods/extentedMomentInversion
+wmake libso src/quadratureMethods/quadratureApproximation
+wmake libso src/quadratureMethods/populationBalanceModels
+wmake libso crystallization
+wmake
+
+# ----------------------------------------------------------------- end-of-file

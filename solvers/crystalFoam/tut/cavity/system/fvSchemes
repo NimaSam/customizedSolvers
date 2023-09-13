@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default  Euler;//steadyState;//
+}
+
+gradSchemes
+{
+    default      Gauss linear;// cellLimited Gauss linear 0.2;
+    //grad(U)	Gauss linear;
+    //grad(p)	Gauss linear;
+    //grad(epsilon)  cellLimited Gauss linear 0.5;
+    //grad(k)	   cellLimited Gauss linear 0.5;
+}
+
+divSchemes
+{
+    default         none;
+
+    div(phi,U)      Gauss limitedLinear 1.0;
+    div(phi,K)      Gauss upwind;//limitedLinear 0.2;
+    div(phi,e)      Gauss upwind;//limitedLinear 0.2;
+    div(phi,h)      Gauss upwind;//limitedLinear 0.2;
+    div(phi,k)       Gauss upwind;//limitedLinear 0.2;
+    div(phi,epsilon) Gauss upwind;//limitedLinear 0.2;
+    div(phi,R)  Gauss upwind;//limitedLinear 0.2;
+    div(R) 	Gauss linear;
+    div(phi,Ekp)    Gauss upwind;//limitedLinear 0.2;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+    div((nu*dev2(T(grad(U)))))	Gauss linear;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    div(((rho*(thermo:mu|thermo:rho))*dev2(T(grad(U))))) Gauss linear;
+    div((rho*R))    Gauss linear;
+    "div\(phi,moment.*\)" Gauss upwind;
+    div(phiv,p)		Gauss linear;
+    div(phi,Yi_h)	Gauss upwind;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+    
+    "interpolate\(moment.*\)" upwind phi;
+    
+    reconstruct(U)          upwind;
+    reconstruct(weight)     upwind;
+    reconstruct(abscissa)   upwind;
+    reconstruct(sigma)      upwind;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+wallDist
+{
+    method meshWave;
+    nRequired   false;
+}
+
+
+// ************************************************************************* //
