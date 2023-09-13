@@ -8,6 +8,8 @@ Here I share different solvers and library i cusotmized for different Projects
   - Add RichardsonZaki relative velocity model
 - chtInterHeatFoam (OF2.3)
   - A conjugate heat transfer solver for multiphaseFlow based on interFoam and multiRegionFoam.
+-crystalFoam (OF 3 - not validated!)
+  - nucleation and growth of crystal in a cavity 
      
 
 ### Example
