@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+thermoType
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState BKW;//perfectGas;//
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+
+mixture
+{
+   specie
+    {
+        nMoles          1;
+        molWeight       28.9;
+    }
+    thermodynamics
+    {
+        Cp              1005;
+        Hf              0;
+    }
+    transport
+    {
+        mu              1.8e-05;
+        Pr              0.7;
+    }
+    equationOfState
+    {
+	beta		0.16; 
+    	kappa 		10.91;//0.01
+    	Vco		333.83;
+    	theta		400;
+    	a		1.5;//0.5;//
+    }
+}
+
+energyData
+{
+	t0    t0 [0 0 1 0 0 0 0] 0; //start time
+	tDET    tDET [0 0 1 0 0 0 0] 5.3E-06; //end time
+	QDET    QDET [0 2 -2 0 0 0 0] 5876E3;//J/kg mass specific energy
+	rDET    rDET [0 1 0 0 0 0 0] 0.1; // the radius  //???????
+	vcj    vcj [0 1 -1 0 0 0 0] 8500;  //burning velocity
+	rhoExp rhoExp [1 -3 0 0 0 0 0] 1560;  //density
+	centre centre   [0 1 0 0 0 0 0] (0 0 0); //the position of explosive
+}
+// ************************************************************************* //

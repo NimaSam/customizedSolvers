@@ -1,0 +1,75 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     sonicFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         0.035;
+
+deltaT          1E-06;
+
+writeControl   adjustableRunTime;//runTime;
+
+writeInterval   0.0001;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  8;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable yes;
+
+libs ("libmyfluidThermophysicalModels.so" "libOpenFOAM.so");
+// ************************************************************************* //
+functions
+{   
+  
+   probes
+    {
+        type            probes;
+        functionObjectLibs ("libsampling.so");
+        enabled         true;
+        writeControl   timeStep;
+        outputInterval  5;
+        probeLocations
+        (        
+		(2.9 0.3 0)
+		(4.7 0.3 0)
+		(7.7 0.9 0)
+		(7.7 0.3 0)
+		(7.7 0.9 -2.125)
+        );
+
+        fields
+        (
+            p            
+        );
+    }
+};
+
