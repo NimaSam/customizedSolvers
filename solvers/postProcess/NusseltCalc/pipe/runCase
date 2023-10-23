@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo blockMesh meshing...
+blockMesh > blockMesh.log
+
+echo run solver ...
+icoHeatFoam > log
+
+echo post processing ...
+
+NusseltPipe -Dh 0.00425 -patchName wall -pipeLength 1.0 -cellNumber 50 -direction "(0 0 1)"
+
+#Dh is hydraulic diameter
+#patchName is the name of wall which nusselt should be calculated
+#pipeLength is the pipe overal length
+#cellNmbers is the division of pipe axis (look in blockMesh to find how much it is)
+#direction is the pipe axis direction 
+
