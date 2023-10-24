@@ -16,3 +16,4 @@ NusseltPipe -Dh 0.00425 -patchName wall -pipeLength 1.0 -cellNumber 50 -directio
 #cellNmbers is the division of pipe axis (look in blockMesh to find how much it is)
 #direction is the pipe axis direction 
 
+postProcess -func sample
