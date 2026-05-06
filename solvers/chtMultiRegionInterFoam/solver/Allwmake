@@ -1,0 +1,5 @@
+#!/bin/sh
+wmake libso thermalImmiscibleIncompressibleTwoPhaseMixture
+wmake libso VoFphaseIncompressibleTurbulenceModels
+wmake libso incompressibleInterPhaseTransportModel
+wmake

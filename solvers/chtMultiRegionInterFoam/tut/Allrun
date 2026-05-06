@@ -1,0 +1,24 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+runApplication ./Allrun.pre
+
+rm -r 0
+cp -r 0.orig 0
+setFields -region water
+
+#-- Run on single processor
+runApplication $(getApplication)
+
+# Decompose
+#runApplication decomposePar -allRegions
+
+# Run
+#runParallel $(getApplication)
+
+# Reconstruct
+#runApplication reconstructPar -allRegions
+
+#------------------------------------------------------------------------------

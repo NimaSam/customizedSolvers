@@ -1,0 +1,5 @@
+#!/bin/sh
+wclean libso thermalImmiscibleIncompressibleTwoPhaseMixture
+wclean libso VoFphaseIncompressibleTurbulenceModels
+wclean libso incompressibleInterPhaseTransportModel
+wclean 

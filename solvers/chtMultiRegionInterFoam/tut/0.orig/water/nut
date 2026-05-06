@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      nut;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0.1;
+
+boundaryField
+{
+    maxY
+    {
+        type            nutkWallFunction;
+        value           uniform 0.1;
+    }
+    minX
+    {
+        type            nutkWallFunction;
+        value           uniform 0.1;
+    }
+    maxX
+    {
+        type            nutkWallFunction;
+        value           uniform 0.1;
+    }
+    minZ
+    {
+        type            empty;
+        value           uniform 0.1;
+    }
+    maxZ
+    {
+        type            empty;
+        value           uniform 0.1;
+    }
+    water_to_heater
+    {
+        type            nutkWallFunction;
+        value           uniform 0.1;
+    }	
+}
+
+
+// ************************************************************************* //
